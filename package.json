@@ -1,21 +1,23 @@
 {
   "name": "thds-ui",
   "version": "1.0.0",
-  "description": "it is test-ui for design system",
-  "main": "dist/index.cjs.js",
-  "source": "src/index.ts",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "author": "theoblanc",
+  "license": "MIT",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "dev": "npm run start",
     "test": "test",
     "lint": "eslint '**/*.{js,ts,tsx}'",
     "lint:fix": "yarn lint -- --fix",
-    "build": "rollup -c ./scripts/rollup/rollup.config.js",
+    "build": "rollup -c ./rollup.config.js",
     "build:types": "tsc --emitDeclarationOnly",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build:storybook": "build-storybook"
   },
-  "author": "theo",
-  "license": "ISC",
   "dependencies": {
     "@emotion/core": "^10.1.1",
     "react": "^17.0.2",
@@ -23,6 +25,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@emotion/babel-plugin": "^11.3.0",
     "@emotion/babel-preset-css-prop": "^11.2.0",
@@ -32,6 +35,7 @@
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
     "@storybook/react": "^6.3.12",
+    "@svgr/rollup": "^5.5.0",
     "@types/react": "^17.0.34",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
@@ -46,11 +50,18 @@
     "eslint-plugin-react": "^7.27.0",
     "prettier": "^2.4.1",
     "react-docgen-typescript-loader": "^3.7.2",
+    "rollup": "^2.60.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-url": "^3.0.1",
     "typescript": "^4.4.4"
   },
   "peerDependencies": {
-    "eslint": ">=6",
-    "eslint-plugin-import": "^2.25.3"
+    "@emotion/core": "^10.0.22",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   }
 }
